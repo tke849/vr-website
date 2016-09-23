@@ -17,7 +17,6 @@
 
 
 
-
 	<script src="js/aframe.js"></script>
 	<!--<script src="js/argon.js"></script>-->
 	<!--<script src="js/argon-aframe.js"></script>-->
@@ -29,6 +28,33 @@
 			top: 60px;
 			right: 20px;
 		}
+		* {
+			-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+		}
+
+		body {
+			-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+			-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+			-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+
+			font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+			font-size:12px;
+			height:100%;
+			margin:0px;
+			padding:0px;
+			text-transform:uppercase;
+			width:100%;
+			background-color: transparent;
+		}
+		h1 {
+			color: orange;
+			font-size:36px;
+			font-weight:normal;
+			margin-top:50px;
+			overflow:visible;
+			padding:0px;
+			text-align:center;
+		}
 	</style>
 
 
@@ -37,27 +63,9 @@
 </head>
 <body ng-app="SWVR">
 
+
 <div ui-view></div>
 
-<!--<video autoplay height="100%" width="100%"></video>-->
-
-<!--<script>-->
-	<!--var onFailSoHard = function(e) {-->
-		<!--console.log('Reeeejected!', e);-->
-	<!--};-->
-
-	<!--// Not showing vendor prefixes.-->
-	<!--navigator.getUserMedia({video: true, audio: true}, function(localMediaStream) {-->
-		<!--var video = document.querySelector('video');-->
-		<!--video.src = window.URL.createObjectURL(localMediaStream);-->
-
-		<!--// Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.-->
-		<!--// See crbug.com/110938.-->
-		<!--video.onloadedmetadata = function(e) {-->
-			<!--// Ready to go. Do some stuff.-->
-		<!--};-->
-	<!--}, onFailSoHard);-->
-<!--</script>-->
 
 <script src="js/bower.js"></script>
 

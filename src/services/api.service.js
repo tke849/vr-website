@@ -15,7 +15,7 @@
         .factory('StarWarsAPI', function(Restangular) {
             return Restangular.withConfig(function(RestangularConfigurer) {
 
-                RestangularConfigurer.setBaseUrl('http://swapi.co/api');
+                RestangularConfigurer.setBaseUrl('https://swapi.co/api');
 
             });
         })

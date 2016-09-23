@@ -89,14 +89,17 @@
 
     <a-entity class="viewContainer" ui-view></a-entity>
 
-    <a-sky class="bg" src="images/stars.png" rotation="0 0 0" opacity="1">
-        <a-animation attribute="rotation"
-                     dur="500000"
-                     easing="linear"
-                     fill="forwards"
-                     to="0 360 0"
-                     repeat="indefinite"></a-animation>
-    </a-sky>
+    <!-- @if DIST -->
+    <!--<a-sky class="bg" src="images/stars.png" rotation="0 0 0" opacity="1">-->
+        <!--<a-animation attribute="rotation"-->
+            <!--dur="500000"-->
+            <!--easing="linear"-->
+            <!--fill="forwards"-->
+            <!--to="0 360 0"-->
+            <!--repeat="indefinite"></a-animation>-->
+    <!--</a-sky>-->
+    <!-- @endif -->
+
 
     <!-- Floor -->
     <!-- Path -->

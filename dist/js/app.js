@@ -62,27 +62,22 @@
 
             $rootScope.fontPath = 'fonts/font.png';
 
-            if($window.cordova){
-
-                var app = {
-
-                    requiredFeatures: [ "2d_tracking", "geo" ],
-                    // ... some code ...
-
-                    onDeviceReady: function() {
-                        app.wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
-                        app.wikitudePlugin.isDeviceSupported(app.onDeviceSupported, app.onDeviceNotSupported, app.requiredFeatures);
+            if (window.ezar) {
+                ezar.initializeVideoOverlay(
+                    function() {
+                        if (ezar.hasBackCamera ()) {
+                            $("body").css ("background-color", "transparent");
+                            var camera = ezar.getBackCamera ();
+                            camera.start ();
+                        } else {
+                            alert('no back camera access!');
+                        }
                     },
-                    onDeviceSupported: function() {
-                       alert('device supported');
-                    },
-                    onDeviceNotSupported: function(errorMessage) {
-                        alert('device not supported');
-                    },
-
-                    // ... some more code ...
-
-                };
+                    function(err) {
+                        alert('unable to init ezar: ' + err);
+                    });
+            } else {
+                alert('Unable to detect the ezAR plugin');
             }
 
 
@@ -1835,7 +1830,7 @@
         .factory('StarWarsAPI', function(Restangular) {
             return Restangular.withConfig(function(RestangularConfigurer) {
 
-                RestangularConfigurer.setBaseUrl('http://swapi.co/api');
+                RestangularConfigurer.setBaseUrl('https://swapi.co/api');
 
             });
         })
