@@ -711,8 +711,8 @@
 
                             var arVideo = document.createElement('a-video');
                             arVideo.setAttribute('src','#arVideo');
-                            arVideo.setAttribute('height','3');
-                            arVideo.setAttribute('width','4');
+                            arVideo.setAttribute('height','30%');
+                            arVideo.setAttribute('width','40%');
                             arVideo.setAttribute('position','0 2 -10');
 
                             var camera = document.querySelector('a-camera');
