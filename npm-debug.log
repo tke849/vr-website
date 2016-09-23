@@ -1,0 +1,149 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'argon-aframe' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose node symlink /usr/local/bin/node
+5 verbose install initial load of /Users/jingle/Documents/Development/STAR_WARS/package.json
+6 warn package.json video_site@0.0.0 No description
+7 warn package.json video_site@0.0.0 No repository field.
+8 warn package.json video_site@0.0.0 No README data
+9 warn package.json video_site@0.0.0 No license field.
+10 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/aframe/package.json
+11 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/aframe-bmfont-text-component/package.json
+12 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/aframe-extras/package.json
+13 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/aframe-video-controls/package.json
+14 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/connect/package.json
+15 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/connect-modrewrite/package.json
+16 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt/package.json
+17 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-autoprefixer/package.json
+18 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-concurrent/package.json
+19 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-connect-rewrite/package.json
+20 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-clean/package.json
+21 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-concat/package.json
+22 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-connect/package.json
+23 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-copy/package.json
+24 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-cssmin/package.json
+25 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-htmlmin/package.json
+26 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-imagemin/package.json
+27 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-jshint/package.json
+28 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-uglify/package.json
+29 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-watch/package.json
+30 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-filerev/package.json
+31 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-google-cdn/package.json
+32 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-newer/package.json
+33 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-ngmin/package.json
+34 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-preprocess/package.json
+35 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-recess/package.json
+36 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-sass/package.json
+37 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-string-replace/package.json
+38 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-svgmin/package.json
+39 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-usemin/package.json
+40 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-wiredep/package.json
+41 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/gulp/package.json
+42 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/gulp-grunt/package.json
+43 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/jshint-stylish/package.json
+44 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/load-grunt-tasks/package.json
+45 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/serve-static/package.json
+46 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/time-grunt/package.json
+47 info package.json connect-modrewrite@0.8.2 No license field.
+48 info package.json grunt@0.4.5 No license field.
+49 info package.json grunt-concurrent@0.5.0 No license field.
+50 info package.json grunt-contrib-clean@0.5.0 No license field.
+51 info package.json grunt-connect-rewrite@0.2.1 No license field.
+52 info package.json grunt-contrib-concat@0.4.0 No license field.
+53 info package.json grunt-contrib-copy@0.5.0 No license field.
+54 info package.json grunt-contrib-connect@0.7.1 No license field.
+55 info package.json grunt-contrib-cssmin@0.9.0 No license field.
+56 info package.json grunt-contrib-htmlmin@0.3.0 No license field.
+57 info package.json grunt-contrib-jshint@0.10.0 No license field.
+58 info package.json grunt-contrib-imagemin@0.7.2 No license field.
+59 info package.json grunt-contrib-uglify@0.4.1 No license field.
+60 info package.json grunt-contrib-watch@0.6.1 No license field.
+61 info package.json grunt-filerev@0.2.1 No license field.
+62 info package.json grunt-google-cdn@0.4.3 license should be a valid SPDX license expression
+63 info package.json grunt-newer@0.7.0 No license field.
+64 info package.json grunt-ngmin@0.0.3 license should be a valid SPDX license expression
+65 info package.json grunt-preprocess@5.1.0 No license field.
+66 info package.json grunt-recess@0.4.0 No license field.
+67 info package.json grunt-string-replace@1.3.0 No license field.
+68 info package.json grunt-svgmin@0.4.0 No license field.
+69 info package.json grunt-wiredep@1.9.0 No license field.
+70 info package.json gulp@3.8.11 No license field.
+71 verbose readDependencies loading dependencies from /Users/jingle/Documents/Development/STAR_WARS/package.json
+72 silly cache add args [ 'argon-aframe', null ]
+73 verbose cache add spec argon-aframe
+74 silly cache add parsed spec { raw: 'argon-aframe',
+74 silly cache add   scope: null,
+74 silly cache add   name: 'argon-aframe',
+74 silly cache add   rawSpec: '',
+74 silly cache add   spec: '*',
+74 silly cache add   type: 'range' }
+75 silly addNamed argon-aframe@*
+76 verbose addNamed "*" is a valid semver range for argon-aframe
+77 silly addNameRange { name: 'argon-aframe', range: '*', hasData: false }
+78 silly mapToRegistry name argon-aframe
+79 silly mapToRegistry using default registry
+80 silly mapToRegistry registry https://registry.npmjs.org/
+81 silly mapToRegistry uri https://registry.npmjs.org/argon-aframe
+82 verbose addNameRange registry:https://registry.npmjs.org/argon-aframe not in flight; fetching
+83 verbose request uri https://registry.npmjs.org/argon-aframe
+84 verbose request no auth needed
+85 info attempt registry request try #1 at 17:25:08
+86 verbose request id b8d51cc57b992e67
+87 http request GET https://registry.npmjs.org/argon-aframe
+88 http 404 https://registry.npmjs.org/argon-aframe
+89 verbose headers { 'content-type': 'application/json',
+89 verbose headers   'cache-control': 'max-age=0',
+89 verbose headers   'content-length': '2',
+89 verbose headers   'accept-ranges': 'bytes',
+89 verbose headers   date: 'Thu, 22 Sep 2016 00:23:22 GMT',
+89 verbose headers   via: '1.1 varnish',
+89 verbose headers   age: '0',
+89 verbose headers   connection: 'keep-alive',
+89 verbose headers   'x-served-by': 'cache-sea1925-SEA',
+89 verbose headers   'x-cache': 'MISS',
+89 verbose headers   'x-cache-hits': '0',
+89 verbose headers   'x-timer': 'S1474503802.681067,VS0,VE87',
+89 verbose headers   vary: 'Accept-Encoding' }
+90 silly get cb [ 404,
+90 silly get   { 'content-type': 'application/json',
+90 silly get     'cache-control': 'max-age=0',
+90 silly get     'content-length': '2',
+90 silly get     'accept-ranges': 'bytes',
+90 silly get     date: 'Thu, 22 Sep 2016 00:23:22 GMT',
+90 silly get     via: '1.1 varnish',
+90 silly get     age: '0',
+90 silly get     connection: 'keep-alive',
+90 silly get     'x-served-by': 'cache-sea1925-SEA',
+90 silly get     'x-cache': 'MISS',
+90 silly get     'x-cache-hits': '0',
+90 silly get     'x-timer': 'S1474503802.681067,VS0,VE87',
+90 silly get     vary: 'Accept-Encoding' } ]
+91 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/argon-aframe
+91 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:239:14)
+91 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+91 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:368:22)
+91 verbose stack     at Request.emit (events.js:110:17)
+91 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1219:14)
+91 verbose stack     at Request.emit (events.js:129:20)
+91 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1167:12)
+91 verbose stack     at IncomingMessage.emit (events.js:129:20)
+91 verbose stack     at _stream_readable.js:908:16
+91 verbose stack     at process._tickCallback (node.js:355:11)
+92 verbose statusCode 404
+93 verbose pkgid argon-aframe
+94 verbose cwd /Users/jingle/Documents/Development/STAR_WARS
+95 error Darwin 14.4.0
+96 error argv "node" "/usr/local/bin/npm" "install" "argon-aframe"
+97 error node v0.12.4
+98 error npm  v2.10.1
+99 error code E404
+100 error 404 Registry returned 404 for GET on https://registry.npmjs.org/argon-aframe
+100 error 404
+100 error 404 'argon-aframe' is not in the npm registry.
+100 error 404 You should bug the author to publish it (or use the name yourself!)
+100 error 404 It was specified as a dependency of 'video_site'
+100 error 404
+100 error 404 Note that you can also install from a
+100 error 404 tarball, folder, http url, or git url.
+101 verbose exit [ 1, true ]

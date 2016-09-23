@@ -1,0 +1,108 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!--<meta http-equiv="Content-Security-Policy" content=":media-src: 'self' mediastream:">-->
+	<title></title>
+
+
+	<!-- @if DIST -->
+	<!--<base href="/">-->
+	<!-- @endif -->
+
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- @if APP -->
+	<script type="text/javascript" src="cordova.js"></script>
+	<!-- @endif -->
+
+
+	<script src="js/aframe.js"></script>
+	<!--<script src="js/argon.js"></script>-->
+	<!--<script src="js/argon-aframe.js"></script>-->
+	<script src="js/aframe-bmfont-text-component.min.js"></script>
+	<script src="js/aframe-extras.js"></script>
+
+	<style>
+		.a-enter-vr{
+			top: 60px;
+			right: 20px;
+		}
+		* {
+			-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+		}
+
+		body {
+			-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+			-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+			-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+
+			font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+			font-size:12px;
+			height:100%;
+			margin:0px;
+			padding:0px;
+			text-transform:uppercase;
+			width:100%;
+			background-color: transparent;
+		}
+		h1 {
+			color: orange;
+			font-size:36px;
+			font-weight:normal;
+			margin-top:50px;
+			overflow:visible;
+			padding:0px;
+			text-align:center;
+		}
+	</style>
+
+
+
+
+</head>
+<body ng-app="SWVR">
+
+
+<div ui-view></div>
+
+
+<!-- build:js js/bower.js -->
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+
+<script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../bower_components/angular-touch/angular-touch.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="../bower_components/restangular/dist/restangular.min.js"></script>
+<script src="../bower_components/underscore/underscore.js"></script>
+
+<!-- endbuild -->
+
+
+<!-- build:js js/app.js -->
+<script src="app.js"></script>
+
+
+<script src="modules/app.routes.js"></script>
+<script src="modules/layout/layout.controller.js"></script>
+<script src="modules/home/home.controller.js"></script>
+<script src="modules/people/people.controller.js"></script>
+<script src="modules/planets/planets.controller.js"></script>
+<script src="modules/vehicles/vehicles.controller.js"></script>
+<script src="modules/films/films.controller.js"></script>
+<script src="modules/films/film.controller.js"></script>
+<script src="modules/species/species.controller.js"></script>
+<script src="modules/starships/starships.controller.js"></script>
+<script src="services/api.service.js"></script>
+
+<!-- endbuild -->
+
+
+</body>
+</html>

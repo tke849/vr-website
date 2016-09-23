@@ -1,0 +1,230 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'i',
+1 verbose cli   'cordova-plugin-android-support-v4' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose node symlink /usr/local/bin/node
+5 verbose install initial load of /Users/jingle/Documents/Development/STAR_WARS/package.json
+6 warn package.json video_site@0.0.0 No description
+7 warn package.json video_site@0.0.0 No repository field.
+8 warn package.json video_site@0.0.0 No README data
+9 warn package.json video_site@0.0.0 No license field.
+10 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/aframe/package.json
+11 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/aframe-bmfont-text-component/package.json
+12 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/aframe-extras/package.json
+13 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/aframe-video-controls/package.json
+14 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/connect/package.json
+15 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/connect-modrewrite/package.json
+16 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt/package.json
+17 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-autoprefixer/package.json
+18 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-concurrent/package.json
+19 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-connect-rewrite/package.json
+20 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-clean/package.json
+21 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-concat/package.json
+22 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-connect/package.json
+23 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-copy/package.json
+24 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-cssmin/package.json
+25 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-htmlmin/package.json
+26 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-imagemin/package.json
+27 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-jshint/package.json
+28 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-uglify/package.json
+29 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-contrib-watch/package.json
+30 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-filerev/package.json
+31 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-google-cdn/package.json
+32 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-newer/package.json
+33 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-ngmin/package.json
+34 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-preprocess/package.json
+35 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-recess/package.json
+36 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-sass/package.json
+37 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-string-replace/package.json
+38 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-svgmin/package.json
+39 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-usemin/package.json
+40 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/grunt-wiredep/package.json
+41 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/gulp/package.json
+42 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/gulp-grunt/package.json
+43 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/jshint-stylish/package.json
+44 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/load-grunt-tasks/package.json
+45 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/serve-static/package.json
+46 verbose installManyTop reading scoped package data from /Users/jingle/Documents/Development/STAR_WARS/node_modules/time-grunt/package.json
+47 info package.json connect-modrewrite@0.8.2 No license field.
+48 info package.json grunt@0.4.5 No license field.
+49 info package.json grunt-concurrent@0.5.0 No license field.
+50 info package.json grunt-connect-rewrite@0.2.1 No license field.
+51 info package.json grunt-contrib-clean@0.5.0 No license field.
+52 info package.json grunt-contrib-concat@0.4.0 No license field.
+53 info package.json grunt-contrib-connect@0.7.1 No license field.
+54 info package.json grunt-contrib-copy@0.5.0 No license field.
+55 info package.json grunt-contrib-cssmin@0.9.0 No license field.
+56 info package.json grunt-contrib-htmlmin@0.3.0 No license field.
+57 info package.json grunt-contrib-imagemin@0.7.2 No license field.
+58 info package.json grunt-contrib-jshint@0.10.0 No license field.
+59 info package.json grunt-contrib-uglify@0.4.1 No license field.
+60 info package.json grunt-contrib-watch@0.6.1 No license field.
+61 info package.json grunt-filerev@0.2.1 No license field.
+62 info package.json grunt-google-cdn@0.4.3 license should be a valid SPDX license expression
+63 info package.json grunt-recess@0.4.0 No license field.
+64 info package.json grunt-newer@0.7.0 No license field.
+65 info package.json grunt-preprocess@5.1.0 No license field.
+66 info package.json grunt-string-replace@1.3.0 No license field.
+67 info package.json grunt-ngmin@0.0.3 license should be a valid SPDX license expression
+68 info package.json grunt-svgmin@0.4.0 No license field.
+69 info package.json gulp@3.8.11 No license field.
+70 info package.json grunt-wiredep@1.9.0 No license field.
+71 verbose readDependencies loading dependencies from /Users/jingle/Documents/Development/STAR_WARS/package.json
+72 silly cache add args [ 'cordova-plugin-android-support-v4', null ]
+73 verbose cache add spec cordova-plugin-android-support-v4
+74 silly cache add parsed spec { raw: 'cordova-plugin-android-support-v4',
+74 silly cache add   scope: null,
+74 silly cache add   name: 'cordova-plugin-android-support-v4',
+74 silly cache add   rawSpec: '',
+74 silly cache add   spec: '*',
+74 silly cache add   type: 'range' }
+75 silly addNamed cordova-plugin-android-support-v4@*
+76 verbose addNamed "*" is a valid semver range for cordova-plugin-android-support-v4
+77 silly addNameRange { name: 'cordova-plugin-android-support-v4',
+77 silly addNameRange   range: '*',
+77 silly addNameRange   hasData: false }
+78 silly mapToRegistry name cordova-plugin-android-support-v4
+79 silly mapToRegistry using default registry
+80 silly mapToRegistry registry https://registry.npmjs.org/
+81 silly mapToRegistry uri https://registry.npmjs.org/cordova-plugin-android-support-v4
+82 verbose addNameRange registry:https://registry.npmjs.org/cordova-plugin-android-support-v4 not in flight; fetching
+83 verbose request uri https://registry.npmjs.org/cordova-plugin-android-support-v4
+84 verbose request no auth needed
+85 info attempt registry request try #1 at 22:39:41
+86 verbose request id 0f81621055afafc7
+87 http request GET https://registry.npmjs.org/cordova-plugin-android-support-v4
+88 http 200 https://registry.npmjs.org/cordova-plugin-android-support-v4
+89 silly get cb [ 200,
+89 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+89 silly get     etag: '"32KKEGSXD5NXLWNETITTNSS9D"',
+89 silly get     'content-type': 'application/json',
+89 silly get     'content-encoding': 'gzip',
+89 silly get     'cache-control': 'max-age=300',
+89 silly get     'content-length': '793',
+89 silly get     'accept-ranges': 'bytes',
+89 silly get     date: 'Thu, 22 Sep 2016 05:37:56 GMT',
+89 silly get     via: '1.1 varnish',
+89 silly get     age: '0',
+89 silly get     connection: 'keep-alive',
+89 silly get     'x-served-by': 'cache-sea1927-SEA',
+89 silly get     'x-cache': 'MISS',
+89 silly get     'x-cache-hits': '0',
+89 silly get     'x-timer': 'S1474522676.688436,VS0,VE84',
+89 silly get     vary: 'Accept-Encoding' } ]
+90 verbose get saving cordova-plugin-android-support-v4 to /Users/jingle/.npm/registry.npmjs.org/cordova-plugin-android-support-v4/.cache.json
+91 silly addNameRange number 2 { name: 'cordova-plugin-android-support-v4',
+91 silly addNameRange   range: '*',
+91 silly addNameRange   hasData: true }
+92 silly addNameRange versions [ 'cordova-plugin-android-support-v4', [ '21.0.1' ] ]
+93 silly addNamed cordova-plugin-android-support-v4@21.0.1
+94 verbose addNamed "21.0.1" is a plain semver version for cordova-plugin-android-support-v4
+95 silly mapToRegistry name cordova-plugin-android-support-v4
+96 silly mapToRegistry using default registry
+97 silly mapToRegistry registry https://registry.npmjs.org/
+98 silly mapToRegistry uri https://registry.npmjs.org/cordova-plugin-android-support-v4
+99 verbose addRemoteTarball https://registry.npmjs.org/cordova-plugin-android-support-v4/-/cordova-plugin-android-support-v4-21.0.1.tgz not in flight; adding
+100 verbose addRemoteTarball [ 'https://registry.npmjs.org/cordova-plugin-android-support-v4/-/cordova-plugin-android-support-v4-21.0.1.tgz',
+100 verbose addRemoteTarball   '8f405294435f4115d73f1ee8dfa5032d609cb889' ]
+101 info retry fetch attempt 1 at 22:39:41
+102 info attempt registry request try #1 at 22:39:41
+103 http fetch GET https://registry.npmjs.org/cordova-plugin-android-support-v4/-/cordova-plugin-android-support-v4-21.0.1.tgz
+104 http fetch 200 https://registry.npmjs.org/cordova-plugin-android-support-v4/-/cordova-plugin-android-support-v4-21.0.1.tgz
+105 silly fetchAndShaCheck shasum 8f405294435f4115d73f1ee8dfa5032d609cb889
+106 verbose addTmpTarball /var/folders/th/cr15c5_j7818fp1mvrqzsn79_1l04n/T/npm-73665-456d2752/registry.npmjs.org/cordova-plugin-android-support-v4/-/cordova-plugin-android-support-v4-21.0.1.tgz not in flight; adding
+107 verbose addTmpTarball already have metadata; skipping unpack for cordova-plugin-android-support-v4@21.0.1
+108 silly cache afterAdd cordova-plugin-android-support-v4@21.0.1
+109 verbose afterAdd /Users/jingle/.npm/cordova-plugin-android-support-v4/21.0.1/package/package.json not in flight; writing
+110 verbose afterAdd /Users/jingle/.npm/cordova-plugin-android-support-v4/21.0.1/package/package.json written
+111 silly install resolved [ { name: 'cordova-plugin-android-support-v4',
+111 silly install resolved     version: '21.0.1',
+111 silly install resolved     description: 'Cordova plugin to add android-support-v4.jar to Cordova/PhoneGap project',
+111 silly install resolved     cordova: { id: 'cordova-plugin-android-support-v4', platforms: [Object] },
+111 silly install resolved     repository:
+111 silly install resolved      { type: 'git',
+111 silly install resolved        url: 'git+https://github.com/floatinghotpot/cordova-plugin-android-support-v4.git' },
+111 silly install resolved     bugs: { url: 'https://github.com/floatinghotpot/cordova-plugin-android-support-v4/issues' },
+111 silly install resolved     keywords:
+111 silly install resolved      [ 'cordova',
+111 silly install resolved        'ecosystem:cordova',
+111 silly install resolved        'google',
+111 silly install resolved        'android',
+111 silly install resolved        'support',
+111 silly install resolved        'v4' ],
+111 silly install resolved     author: { name: 'Google' },
+111 silly install resolved     license: 'MIT',
+111 silly install resolved     contributors: [ [Object] ],
+111 silly install resolved     gitHead: 'be140fb103f87faa2a2da8268dbec1d93e32790d',
+111 silly install resolved     homepage: 'https://github.com/floatinghotpot/cordova-plugin-android-support-v4#readme',
+111 silly install resolved     _id: 'cordova-plugin-android-support-v4@21.0.1',
+111 silly install resolved     scripts: {},
+111 silly install resolved     _shasum: '8f405294435f4115d73f1ee8dfa5032d609cb889',
+111 silly install resolved     _from: 'cordova-plugin-android-support-v4@*',
+111 silly install resolved     _npmVersion: '2.8.3',
+111 silly install resolved     _nodeVersion: '0.12.2',
+111 silly install resolved     _npmUser: { name: 'floatinghotpot', email: 'rjfun.mobile@gmail.com' },
+111 silly install resolved     dist:
+111 silly install resolved      { shasum: '8f405294435f4115d73f1ee8dfa5032d609cb889',
+111 silly install resolved        tarball: 'https://registry.npmjs.org/cordova-plugin-android-support-v4/-/cordova-plugin-android-support-v4-21.0.1.tgz' },
+111 silly install resolved     maintainers: [ [Object] ],
+111 silly install resolved     directories: {},
+111 silly install resolved     _resolved: 'https://registry.npmjs.org/cordova-plugin-android-support-v4/-/cordova-plugin-android-support-v4-21.0.1.tgz' } ]
+112 info install cordova-plugin-android-support-v4@21.0.1 into /Users/jingle/Documents/Development/STAR_WARS
+113 info installOne cordova-plugin-android-support-v4@21.0.1
+114 verbose installOne of cordova-plugin-android-support-v4 to /Users/jingle/Documents/Development/STAR_WARS not in flight; installing
+115 verbose lock using /Users/jingle/.npm/_locks/cordova-plugin-android-s-1116e5d36b536fd2.lock for /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4
+116 silly install write writing cordova-plugin-android-support-v4 21.0.1 to /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4
+117 verbose unbuild node_modules/cordova-plugin-android-support-v4
+118 silly gentlyRm /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4 is being purged from base /Users/jingle/Documents/Development/STAR_WARS
+119 verbose gentlyRm don't care about contents; nuking /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4
+120 verbose tar unpack /Users/jingle/.npm/cordova-plugin-android-support-v4/21.0.1/package.tgz
+121 verbose tar unpacking to /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4
+122 silly gentlyRm /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4 is being purged
+123 verbose gentlyRm don't care about contents; nuking /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4
+124 silly gunzTarPerm modes [ '755', '644' ]
+125 silly gunzTarPerm extractEntry package.json
+126 silly gunzTarPerm extractEntry README.md
+127 silly gunzTarPerm extractEntry LICENSE
+128 silly gunzTarPerm extractEntry AUTHORS
+129 silly gunzTarPerm extractEntry CONTRIBUTING.md
+130 silly gunzTarPerm extractEntry CONTRIBUTORS
+131 silly gunzTarPerm extractEntry android-support-v4.jar
+132 silly gunzTarPerm extractEntry plugin.xml
+133 verbose write writing to /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4/package.json
+134 info preinstall cordova-plugin-android-support-v4@21.0.1
+135 verbose readDependencies loading dependencies from /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4/package.json
+136 verbose readDependencies loading dependencies from /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4/package.json
+137 silly install resolved []
+138 verbose about to build /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4
+139 info build /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4
+140 info linkStuff cordova-plugin-android-support-v4@21.0.1
+141 silly linkStuff cordova-plugin-android-support-v4@21.0.1 has /Users/jingle/Documents/Development/STAR_WARS/node_modules as its parent node_modules
+142 verbose linkBins cordova-plugin-android-support-v4@21.0.1
+143 verbose linkMans cordova-plugin-android-support-v4@21.0.1
+144 verbose rebuildBundles cordova-plugin-android-support-v4@21.0.1
+145 info install cordova-plugin-android-support-v4@21.0.1
+146 info postinstall cordova-plugin-android-support-v4@21.0.1
+147 verbose unlock done using /Users/jingle/.npm/_locks/cordova-plugin-android-s-1116e5d36b536fd2.lock for /Users/jingle/Documents/Development/STAR_WARS/node_modules/cordova-plugin-android-support-v4
+148 verbose validateInstall loading /Users/jingle/Documents/Development/STAR_WARS/package.json for validation
+149 verbose stack Error: The package aframe does not satisfy its siblings' peerDependencies requirements!
+149 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+149 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:267:7
+149 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:138:5
+149 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+149 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+149 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+149 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+149 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+149 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+149 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+150 verbose cwd /Users/jingle/Documents/Development/STAR_WARS/app
+151 error Darwin 14.4.0
+152 error argv "node" "/usr/local/bin/npm" "i" "cordova-plugin-android-support-v4"
+153 error node v0.12.4
+154 error npm  v2.10.1
+155 error code EPEERINVALID
+156 error peerinvalid The package aframe does not satisfy its siblings' peerDependencies requirements!
+156 error peerinvalid Peer aframe-extras@2.3.2 wants aframe@^0.3.0
+157 verbose exit [ 1, true ]
