@@ -907,35 +907,63 @@
                     console.log('Reeeejected!', e);
                 };
 
+                navigator.getUserMedia = navigator.getUserMedia ||
+                    navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-                // Not showing vendor prefixes.
-                navigator.getUserMedia({video: {
-                    optional: [{facingMode: "environment"}]
-                }, audio: false, facingMode: "environment"}, function(localMediaStream) {
-                    var assets = document.querySelector('a-assets');
+                if (typeof MediaStreamTrack === 'undefined' && navigator.getUserMedia) {
+                    alert('This browser doesn\'t support this demo :(');
+                } else {
 
-                    var video = document.createElement('video');
-                    video.setAttribute('autoplay','true');
-                    video.setAttribute('id','arVideo');
-                    video.src = window.URL.createObjectURL(localMediaStream);
-
-                    // Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
-                    // See crbug.com/110938.
-                    video.onloadedmetadata = function(e) {
-                        // Ready to go. Do some stuff.
-                        assets.appendChild(video);
-
-                        var arVideo = document.createElement('a-video');
-                        arVideo.setAttribute('src','#arVideo');
-                        arVideo.setAttribute('height','100%');
-                        arVideo.setAttribute('width','100%');
-                        arVideo.setAttribute('position','0 2 -10');
-
-                        var camera = document.querySelector('a-camera');
-
-                        camera.appendChild(arVideo);
+                    var options = {
+                        video: {
+                            optional: [{facingMode: "environment"}]
+                        }
                     };
-                }, errorCallback);
+
+                    MediaStreamTrack.getSources(function(sources) {
+                        for (var i = 0; i !== sources.length; ++i) {
+                            var source = sources[i];
+                            if (source.kind === 'video') {
+                                if (source.facing && source.facing == "environment") {
+                                    options.video.optional.push({'sourceId': source.id});
+                                }
+                            }
+                        }
+                    });
+
+                    var streamFound =  function(localMediaStream) {
+                        var assets = document.querySelector('a-assets');
+
+                        var video = document.createElement('video');
+                        video.setAttribute('autoplay','true');
+                        video.setAttribute('id','arVideo');
+                        video.src = window.URL.createObjectURL(localMediaStream);
+
+                        // Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
+                        // See crbug.com/110938.
+                        video.onloadedmetadata = function(e) {
+                            // Ready to go. Do some stuff.
+                            assets.appendChild(video);
+
+                            var arVideo = document.createElement('a-video');
+                            arVideo.setAttribute('src','#arVideo');
+                            arVideo.setAttribute('height','100%');
+                            arVideo.setAttribute('width','100%');
+                            arVideo.setAttribute('position','0 2 -10');
+
+                            var camera = document.querySelector('a-camera');
+
+                            camera.appendChild(arVideo);
+                        };
+                    }
+
+                    //{video: true, audio: false}
+
+                    navigator.getUserMedia(options, streamFound, errorCallback);
+
+                }
+                    // Not showing vendor prefixes.
+
 
             }
 
