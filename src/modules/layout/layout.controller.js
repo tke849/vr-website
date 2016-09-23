@@ -688,6 +688,8 @@
                             if (source.kind === 'video') {
                                 if (source.facing && source.facing == "environment") {
                                     options.video.optional.push({'sourceId': source.id});
+
+                                    navigator.getUserMedia(options, streamFound, errorCallback);
                                 }
                             }
                         }
@@ -721,7 +723,7 @@
 
                     //{video: true, audio: false}
 
-                    navigator.getUserMedia(options, streamFound, errorCallback);
+
 
                 }
                     // Not showing vendor prefixes.
