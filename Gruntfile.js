@@ -379,7 +379,7 @@ module.exports = function (grunt) {
                         DIST: true
                     }
                 }
-            }
+            },
 
         },
 
