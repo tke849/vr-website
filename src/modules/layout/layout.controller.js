@@ -647,6 +647,60 @@
             }, 3000);
         };
 
+        $scope.loadBG = function(){
+
+            if (window.ezar) {
+                ezar.initializeVideoOverlay(
+                    function() {
+                        if (ezar.hasBackCamera ()) {
+                            $("body").css ("background-color", "transparent");
+                            var camera = ezar.getBackCamera ();
+                            camera.start ();
+                        } else {
+                            //alert('no back camera access!');
+                        }
+                    },
+                    function(err) {
+                        // alert('unable to init ezar: ' + err);
+                    });
+            } else {
+
+                var errorCallback = function(e) {
+                    console.log('Reeeejected!', e);
+                };
+
+
+                // Not showing vendor prefixes.
+                navigator.getUserMedia({video: true, audio: false, facingMode: "environment"}, function(localMediaStream) {
+                    var assets = document.querySelector('a-assets');
+
+                    var video = document.createElement('video');
+                    video.setAttribute('autoplay','true');
+                    video.setAttribute('id','arVideo');
+                    video.src = window.URL.createObjectURL(localMediaStream);
+
+                    // Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
+                    // See crbug.com/110938.
+                    video.onloadedmetadata = function(e) {
+                        // Ready to go. Do some stuff.
+                        assets.appendChild(video);
+
+                        var arVideo = document.createElement('a-video');
+                        arVideo.setAttribute('src','#arVideo');
+                        arVideo.setAttribute('height','100%');
+                        arVideo.setAttribute('width','100%');
+                        arVideo.setAttribute('position','0 2 -10');
+
+                        var camera = document.querySelector('a-camera');
+
+                        camera.appendChild(arVideo);
+                    };
+                }, errorCallback);
+
+            }
+
+        };
+
 
         $scope.init = function(){
 
@@ -659,6 +713,8 @@
             $scope.viveControls();
 
             $scope.cameraSaber();
+
+            $scope.loadBG();
 
         };
 
