@@ -909,7 +909,9 @@
 
 
                 // Not showing vendor prefixes.
-                navigator.getUserMedia({video: true, audio: false, facingMode: "environment"}, function(localMediaStream) {
+                navigator.getUserMedia({video: {
+                    optional: [{facingMode: "environment"}]
+                }, audio: false, facingMode: "environment"}, function(localMediaStream) {
                     var assets = document.querySelector('a-assets');
 
                     var video = document.createElement('video');
