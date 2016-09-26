@@ -28,7 +28,7 @@
 		.a-enter-vr {
 			top: 60px;
 			right: 20px;
-
+			z-index: 99999999999;
 		}
 
 		body {
@@ -91,6 +91,10 @@
 			container = document.getElementById('webglviewer');
 			container.appendChild(element);
 			effect = new THREE.StereoEffect(renderer);
+
+//			element.addEventListener('click', fullscreen, false);
+			var vrIcon = document.querySelector('.a-enter-vr');
+			vrIcon.addEventListener('click', fullscreen, false);
 
 			if (window.DeviceOrientationEvent) {
 				window.addEventListener('deviceorientation', function(evt) {
@@ -220,6 +224,18 @@
 
 		function render(dt) {
 			effect.render(scene, camera);
+		}
+
+		function fullscreen() {
+			if (container.requestFullscreen) {
+				container.requestFullscreen();
+			} else if (container.msRequestFullscreen) {
+				container.msRequestFullscreen();
+			} else if (container.mozRequestFullScreen) {
+				container.mozRequestFullScreen();
+			} else if (container.webkitRequestFullscreen) {
+				container.webkitRequestFullscreen();
+			}
 		}
 
 	</script>
