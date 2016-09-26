@@ -22,43 +22,216 @@
 	<!--<script src="js/argon-aframe.js"></script>-->
 	<script src="js/aframe-bmfont-text-component.min.js"></script>
 	<script src="js/aframe-extras.js"></script>
+	<script src="js/StereoEffect.js"></script>
 
 	<style>
-		.a-enter-vr{
+		.a-enter-vr {
 			top: 60px;
 			right: 20px;
-		}
-		* {
-			-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+
 		}
 
 		body {
-			-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-			-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-			-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-
-			font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-			font-size:12px;
-			height:100%;
-			margin:0px;
-			padding:0px;
-			text-transform:uppercase;
-			width:100%;
+			height: 100%;
+			margin: 0;
+			overflow: hidden;
+			padding: 0;
+			width: 100%;
 			background-color: transparent;
 		}
 
+		#webglviewer{
+			bottom: 0;
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			z-index: 100;
+		}
 	</style>
 
 
+	<script>
 
+		document.addEventListener("DOMContentLoaded", function(event) {
+			setTimeout(function(){
+
+				var aCanvas = document.querySelector('.a-canvas');
+				aCanvas.style.zIndex = 999999;
+				init();
+
+			}, 1000);
+
+		});
+
+		var scene,
+				camera,
+				renderer,
+				element,
+				container,
+				effect,
+				video,
+				canvas,
+				context,
+				themes = ['blackandwhite', 'sepia', 'arcade', 'inverse'],
+				currentTheme = 0,
+				lookingAtGround = false;
+
+
+
+		function init() {
+
+			scene = new THREE.Scene();
+			camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.001, 700);
+			camera.position.set(0, 15, 0);
+			scene.add(camera);
+
+			renderer = new THREE.WebGLRenderer();
+			element = renderer.domElement;
+			container = document.getElementById('webglviewer');
+			container.appendChild(element);
+			effect = new THREE.StereoEffect(renderer);
+
+			if (window.DeviceOrientationEvent) {
+				window.addEventListener('deviceorientation', function(evt) {
+					if (evt.gamma > -1 && evt.gamma < 1 && !lookingAtGround) {
+						lookingAtGround = true;
+						currentTheme = (themes.length > currentTheme+1) ? currentTheme+1 : 0;
+
+						setTimeout(function() {
+							lookingAtGround = false;
+						}, 4000);
+					}
+				}.bind(this));
+			}
+
+			video = document.createElement('video');
+			video.setAttribute('autoplay', true);
+
+			var options = {
+				video: {
+					optional: [{facingMode: "environment"}]
+				}
+			};
+
+			navigator.getUserMedia = navigator.getUserMedia ||
+					navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+			if (typeof navigator.mediaDevices === 'undefined' && navigator.getUserMedia) {
+				alert('This browser doesn\'t support this demo :(');
+			} else {
+
+				navigator.mediaDevices.enumerateDevices().then(function(sources) {
+					for (var i = 0; i !== sources.length; ++i) {
+						var source = sources[i];
+						if (source.kind === 'video') {
+							if (source.facing && source.facing == "environment") {
+								options.video.optional.push({'sourceId': source.id});
+							}
+						}
+					}
+
+					navigator.getUserMedia(options, streamFound, streamError);
+				});
+
+			}
+
+			function streamFound(stream) {
+				document.body.appendChild(video);
+				video.src = URL.createObjectURL(stream);
+				video.style.width = '100%';
+				video.style.height = '100%';
+				video.play();
+
+				canvas = document.createElement('canvas');
+				canvas.width = video.clientWidth;
+				canvas.height = video.clientHeight;
+				canvas.width = nextPowerOf2(canvas.width);
+				canvas.height = nextPowerOf2(canvas.height);
+
+				function nextPowerOf2(x) {
+					return Math.pow(2, Math.ceil(Math.log(x) / Math.log(2)));
+				}
+
+				context = canvas.getContext('2d');
+
+
+				texture = new THREE.Texture(canvas);
+				texture = new THREE.Texture(canvas);
+				texture.context = context;
+
+				// If you do not use powersOf2, or you want to adjust things more, you could use these:
+				//texture.minFilter = THREE.LinearMipMapLinearFilter;
+				//texture.magFilter = THREE.NearestFilter;
+
+				var cameraPlane = new THREE.PlaneGeometry(1920, 1280);
+
+				cameraMesh = new THREE.Mesh(cameraPlane, new THREE.MeshBasicMaterial({
+					color: 0xffffff, opacity: 1, map: texture
+				}));
+				cameraMesh.position.z = -600;
+
+				scene.add(cameraMesh);
+			}
+
+			function streamError(error) {
+				console.log('Stream error: ', error);
+			}
+
+			animate();
+		}
+
+
+		function animate() {
+			if (context) {
+				context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+				var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+				context.putImageData(imageData, 0, 0);
+
+
+				if (video.readyState === video.HAVE_ENOUGH_DATA) {
+					texture.needsUpdate = true;
+				}
+			}
+
+			requestAnimationFrame(animate);
+
+			update();
+			render();
+		}
+
+		function resize() {
+			var width = container.offsetWidth;
+			var height = container.offsetHeight;
+
+			camera.aspect = width / height;
+			camera.updateProjectionMatrix();
+
+			renderer.setSize(width, height);
+			effect.setSize(width, height);
+		}
+
+		function update(dt) {
+			resize();
+
+			camera.updateProjectionMatrix();
+		}
+
+		function render(dt) {
+			effect.render(scene, camera);
+		}
+
+	</script>
 
 </head>
 <body ng-app="SWVR">
 
 
 <div ui-view></div>
+<div id="webglviewer"></div>
 
-<!--<video autoplay></video>-->
+<!--<video autoplay width="100%" height="100%"></video>-->
 <script src="js/bower.js"></script>
 
 

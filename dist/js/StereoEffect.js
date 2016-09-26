@@ -11,7 +11,7 @@ THREE.StereoEffect = function ( renderer ) {
 
 	// API
 
-	this.separation = 12;
+	this.separation = 3;
 
 	/*
 	 * Distance to the non-parallax or projection plane

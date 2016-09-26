@@ -682,25 +682,24 @@
                         }
                     };
 
-                    MediaStreamTrack.getSources(function(sources) {
-                        for (var i = 0; i !== sources.length; ++i) {
-                            var source = sources[i];
-                            if (source.kind === 'video') {
-                                if (source.facing && source.facing == "environment") {
-                                    options.video.optional.push({'sourceId': source.id});
 
-                                    navigator.getUserMedia(options, streamFound, errorCallback);
-                                }
-                            }
-                        }
-                    });
 
                     var streamFound =  function(localMediaStream) {
                         var assets = document.querySelector('a-assets');
 
+                        var canvas = document.querySelector('canvas');
+                        var ratio = canvas.height / canvas.width;
+                        var depth = 5;
+                        var height = ratio * ( 4 * (depth - 0.5));
+                        var width =  4 * (depth - 0.5);
+
                         var video = document.createElement('video');
                         video.setAttribute('autoplay','true');
                         video.setAttribute('id','arVideo');
+
+                        console.log(video.videoHeight); // returns the intrinsic height of the video
+                        console.log(video.videoWidth);
+
                         video.src = window.URL.createObjectURL(localMediaStream);
 
                         // Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
@@ -711,9 +710,9 @@
 
                             var arVideo = document.createElement('a-video');
                             arVideo.setAttribute('src','#arVideo');
-                            arVideo.setAttribute('height','30%');
-                            arVideo.setAttribute('width','40%');
-                            arVideo.setAttribute('position','0 2 -10');
+                            arVideo.setAttribute('height', '100%');
+                            arVideo.setAttribute('width', '100%');
+                            arVideo.setAttribute('position','0 2 -'+depth);
 
                             var camera = document.querySelector('a-camera');
 
@@ -721,7 +720,21 @@
                         };
                     }
 
-                    //{video: true, audio: false}
+                    MediaStreamTrack.getSources(function(sources) {
+                        for (var i = 0; i !== sources.length; ++i) {
+                            var source = sources[i];
+                            if (source.kind === 'video') {
+                                if (source.facing && source.facing == "environment") {
+                                    options.video.optional.push({'sourceId': source.id});
+
+                                    //navigator.getUserMedia(options, streamFound, errorCallback);
+                                }
+                            }
+                        }
+                    });
+
+                    navigator.getUserMedia(options, streamFound, errorCallback);
+
 
 
 
@@ -732,6 +745,7 @@
             }
 
         };
+
 
 
         $scope.init = function(){
@@ -746,7 +760,8 @@
 
             $scope.cameraSaber();
 
-            $scope.loadBG();
+            //$scope.loadBG();
+
 
         };
 
