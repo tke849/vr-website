@@ -63,11 +63,19 @@
 
 				var aCanvas = document.querySelector('.a-canvas');
 				aCanvas.style.zIndex = 999999;
-				init();
+//				init();
+
+//				var sceneEl = document.querySelector('a-scene');
+//				sceneEl.addEventListener('enter-vr', init());
+
+				var vrIcon = document.querySelector('.a-enter-vr');
+				vrIcon.addEventListener('click', initgrunt dist, false);
 
 			}, 1000);
 
 		});
+
+
 
 		var scene,
 				camera,
@@ -98,8 +106,7 @@
 			effect = new THREE.StereoEffect(renderer);
 
 //			element.addEventListener('click', fullscreen, false);
-			var vrIcon = document.querySelector('.a-enter-vr');
-			vrIcon.addEventListener('click', fullscreen, false);
+
 
 			if (window.DeviceOrientationEvent) {
 				window.addEventListener('deviceorientation', function(evt) {
