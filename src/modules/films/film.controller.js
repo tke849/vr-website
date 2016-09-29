@@ -13,9 +13,9 @@
         .controller('FilmController', FilmController)
         .directive('filmWrapper', createFilm);
 
-    FilmController.$inject = ['$scope', '$state', '$location', 'APIService', 'AFRAME'];
+    FilmController.$inject = ['$scope', '$rootScope', '$location', 'APIService', 'AFRAME'];
 
-    function FilmController ($scope, $state, $location, APIService, AFRAME) {
+    function FilmController ($scope, $rootScope, $location, APIService, AFRAME) {
 
         var apiEndpoint = $location.$$path;
 

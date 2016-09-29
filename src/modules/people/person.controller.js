@@ -13,13 +13,13 @@
         .controller('PeopleController', PeopleController)
         .directive('peopleWrapper', createPeople);
 
-    PeopleController.$inject = ['$scope', 'APIService'];
+    PeopleController.$inject = ['$scope', '$rootScope', 'APIService'];
 
-    function PeopleController ($scope, APIService) {
+    function PeopleController ($scope, $rootScope, APIService) {
 
         $scope.init = function(){
 
-            var people
+            var people;
 
             var peoplePromise = APIService.getPeople();
 

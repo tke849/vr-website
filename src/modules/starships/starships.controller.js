@@ -13,9 +13,9 @@
         .controller('StarshipsController', StarshipsController)
         .directive('starshipsWrapper', createStarships);
 
-    StarshipsController.$inject = ['$scope', '$location', 'APIService'];
+    StarshipsController.$inject = ['$scope', '$rootScope', '$location', 'APIService'];
 
-    function StarshipsController ($scope, $location, APIService) {
+    function StarshipsController ($scope, $rootScope, $location, APIService) {
 
         var apiEndpoint = $location.$$path;
 
@@ -53,7 +53,7 @@
 
     }
 
-    function createStarships($compile) {
+    function createStarships($compile, $rootScope) {
         return {
             restrict: 'EA',
             scope: {
@@ -74,7 +74,7 @@
 
                     html = html +
                         '<a-entity position="'+ship.x+' 2 '+ship.z+'" rotation="0 '+ship.rotation+' 0">'+
-                        '<a-image src="'+imageSrc+'" scale="2 2 2" position="0 0 0" link="'+ship.url+'"></a-image>'+
+                        '<a-image class="link" src="'+imageSrc+'" scale="2 2 2" position="0 0 0" link="'+ship.url+'"></a-image>'+
                         '<a-entity bmfont-text="text: '+ship.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu-sdf.fnt; align: center;" position="-0.75 -1.5 0" link="'+ship.url+'"></a-entity>'+
                         '</a-entity>';
 
@@ -82,6 +82,8 @@
 
                 var e =$compile(html)(scope);
                 element.replaceWith(e);
+
+                $rootScope.$broadcast('linksCreated');
 
             }
         };

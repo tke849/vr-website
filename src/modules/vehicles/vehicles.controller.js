@@ -13,9 +13,9 @@
         .controller('VehiclesController', VehiclesController)
         .directive('vehiclesWrapper', createVehicles);
 
-    VehiclesController.$inject = ['$scope', '$location', 'APIService'];
+    VehiclesController.$inject = ['$scope', '$rootScope', '$location', 'APIService'];
 
-    function VehiclesController ($scope, $location, APIService) {
+    function VehiclesController ($scope, $rootScope, $location, APIService) {
 
         var apiEndpoint = $location.$$path;
 
@@ -55,7 +55,7 @@
 
     }
 
-    function createVehicles($compile) {
+    function createVehicles($compile, $rootScope) {
         return {
             restrict: 'EA',
             scope: {
@@ -77,7 +77,7 @@
 
                     html = html +
                         '<a-entity position="'+vehicle.x+' 2 '+vehicle.z+'" rotation="0 '+vehicle.rotation+' 0">'+
-                        '<a-image src="'+imageSrc+'" scale="2 2 2" position="0 0 0" link="'+link+'"></a-image>'+
+                        '<a-image class="link" src="'+imageSrc+'" scale="2 2 2" position="0 0 0" link="'+link+'"></a-image>'+
                         '<a-entity bmfont-text="text: '+vehicle.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu-sdf.fnt; align: center;" position="-0.75 -1.5 0" link="'+vehicle.url+'"></a-entity>'+
                         '</a-entity>';
 
@@ -85,6 +85,8 @@
 
                 var e =$compile(html)(scope);
                 element.replaceWith(e);
+
+                $rootScope.$broadcast('linksCreated');
 
             }
         };

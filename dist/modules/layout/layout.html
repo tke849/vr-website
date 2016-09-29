@@ -1,112 +1,100 @@
 
 
 
-<a-scene  inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+<a-scene  debug="true" inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
 
     <a-assets>
-        <a-mixin id="saber" collider></a-mixin>
-
+        <a-asset-item id="blasterDae" src="images/blaster.dae"></a-asset-item>
+        <img id="arrow" src="images/arrow.png">
+        <img id="home" src="images/home.png">
+        <a-mixin id="pew" geometry="primitive:cylinder; height: 0.2; radius: 0.01" material="color: blue"></a-mixin>
     </a-assets>
 
-    <a-entity
-            class="back"
-            bmfont-text="text: << Back; color: #fff; width: 300px;"
-            position="0 1 -1"
-            scale="1 1 1"
-            ></a-entity>
+    <a-entity class="link" back="true" position="0 -4.5 -2" rotation="90 0 0" scale="2 2 2">
+        <a-image src="#arrow" class="back" position="-2 0 0" rotation="0 0 90" back></a-image>
+        <a-image src="#home" class="home" position="0 0 0"  rotation="0 0 180" home></a-image>
+        <a-image src="#arrow" class="forward" position="2 0 0"  rotation="0 0 -90" forward></a-image>
+    </a-entity>
 
+    <a-camera id="camera" user-height="2" tracked-controls look-controls>
 
-<!-- Camera -->
-    <a-camera id="camera" user-height="2" tracked-controls look-controls wasd-controls="false">
+        <a-entity position="-0.25 -0.35 -3.75">
+            <a-plane color="white" opacity="0.5" height="0.1" width="0.01" position="0 0.1 0"></a-plane>
+            <a-plane color="white" opacity="0.5"  height="0.1" width="0.01" position="0 -0.1 0"></a-plane>
+            <a-plane color="white" opacity="0.5"  height="0.1" width="0.01" position="0.1 0 0" rotation="0 0 90"></a-plane>
+            <a-plane color="white" opacity="0.5"  height="0.1" width="0.01" position="-0.1 0 0" rotation="0 0 90"></a-plane>
+        </a-entity>
 
-
+        <a-entity class="blaster" cursor position="-0.25 -0.5 -1" scale="1 1 1" rotation="0 90 0" spawner="mixin: pew; on: mousedown">
+            <a-entity collada-model="#blasterDae"  scale="1 1 1" position="0 0 0"></a-entity>
+            <a-sphere class="bullet" radius="0.015" color="blue" position="0.3 0.125 0.0025" rotation="0 0 90" opacity="0"></a-sphere>
+        </a-entity>
 
         <a-entity cursor class="cameraSaber" position=".5 -0.5 -1"  rotation="0 0 -45">
 
-            <a-cylinder class="hitCylinder" height="1" radius="0.02" color="blue" position="0 0 0" opacity="1"></a-cylinder>
+            <a-cylinder class="hitCylinder" height="1" radius="0.02" color="blue" position="0 0 0" opacity="1" shader="standard"></a-cylinder>
             <a-cylinder height="1" radius="0.035" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>
             <a-cylinder height="1" radius="0.05" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>
             <a-cylinder height="0.2" radius="0.02" color="grey" position="0 -0.6 0" opacity="1"></a-cylinder>
 
             <a-animation attribute="rotation" to="0 0 -90" fill="forwards" dur="150" begin="throwCameraSaber" next="moveSaberForward"></a-animation>
-            <a-animation attribute="position" to=".5 -0.5 -4.5" fill="forwards" dur="1000" begin="moveSaberForward" next="moveSaberBack"></a-animation>
+            <a-animation attribute="position" to="0 0 -4.5" fill="forwards" dur="1000" begin="moveSaberForward" next="moveSaberBack"></a-animation>
             <a-animation attribute="rotation" to="0 7200 -90" fill="forwards" easing="ease-in" begin="moveSaberForward" dur="1000"></a-animation>
             <a-animation attribute="rotation" to="0 0 -90" fill="forwards" easing="ease-out" begin="moveSaberBack" dur="1000"></a-animation>
             <a-animation attribute="position" to=".5 -0.5 -1" fill="forwards" dur="1000" begin="moveSaberBack" next="returnPosition"></a-animation>
             <a-animation attribute="rotation" to="0 0 -45" fill="forwards" dur="150" begin="returnPosition" next="stopAnimation"></a-animation>
 
-
         </a-entity>
-
-        <!--<a-entity cursor="fuse: true; fuseTimeout: 3000"
-                  id="cursor"
-                  position="0 0 -1"
-                  geometry="primitive: ring; radiusOuter: 0.30; radiusInner: 0.20;"
-                  material="color: #7ec5c1; shader: flat"
-                  scale=".05 .05 .05"
-                  spawner="mixin: saber; on: mousedown; position: 0 2 -1"
-                  spawner="mixin: saber; on: click; position: 0 2 -1"
-                  spawner="mixin: saber; on: touchstart; position: 0 2 -1"
-                  spawner="mixin: saber; on: gripdown; position: 0 2 -1"
-                 >
-            <a-animation attribute="scale" dur="3000" begin="mouseenter" end="mouseleave" fill="backward" to=".01 .01 .01"></a-animation>
-            <a-animation attribute="scale" dur="150" begin="mouseleave" fill="forwards" to=".05 .05 .05"></a-animation>
-
-            <a-animation attribute="position" begin="throwSaber" easing="linear" to="0 -2 -150" dur="0"></a-animation>
-
-
-        </a-entity>-->
 
     </a-camera>
 
-    <a-entity id="leftHand" hand-controls="left" rotation="0 0 0">
-        <a-entity class="leftSaber" position="0.6 0 0"  rotation="0 0 -90">
+    <!--  VIVE CONTROLLERS!!! -->
 
-            <a-cylinder height="1" radius="0.02" color="blue" position="0 0 0" opacity="1"></a-cylinder>
-            <a-cylinder height="1" radius="0.035" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>
-            <a-cylinder height="1" radius="0.05" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>
-            <a-cylinder height="0.2" radius="0.02" color="grey" position="0 -0.6 0" opacity="1"></a-cylinder>
+    <!--<a-entity id="leftHand" hand-controls="left" rotation="0 0 0">-->
+        <!--<a-entity class="leftSaber" position="0.6 0 0"  rotation="0 0 -90">-->
 
-            <a-animation attribute="position" to="-0.6 0 -4.5" fill="forwards" dur="1000" begin="throwLeftSaber" next="moveSaberBack"></a-animation>
-            <a-animation attribute="rotation" to="0 7200 -90" fill="forwards"  begin="throwLeftSaber"  dur="2000"></a-animation>
-            <a-animation attribute="position" to="0.6 0 0" fill="forwards" dur="1000" begin="moveSaberBack" next="stopAnimation"></a-animation>
+            <!--<a-cylinder class="hitCylinder" height="1" radius="0.02" color="blue" position="0 0 0" opacity="1"></a-cylinder>-->
+            <!--<a-cylinder height="1" radius="0.035" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>-->
+            <!--<a-cylinder height="1" radius="0.05" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>-->
+            <!--<a-cylinder height="0.2" radius="0.02" color="grey" position="0 -0.6 0" opacity="1"></a-cylinder>-->
+
+            <!--<a-animation attribute="position" to="-0.6 0 -4.5" fill="forwards" dur="1000" begin="throwLeftSaber" next="moveSaberBack"></a-animation>-->
+            <!--<a-animation attribute="rotation" to="0 7200 -90" fill="forwards"  begin="throwLeftSaber"  dur="2000"></a-animation>-->
+            <!--<a-animation attribute="position" to="0.6 0 0" fill="forwards" dur="1000" begin="moveSaberBack" next="stopAnimation"></a-animation>-->
 
 
-        </a-entity>
-    </a-entity>
+        <!--</a-entity>-->
+    <!--</a-entity>-->
 
-    <a-entity id="rightHand" hand-controls="right"  rotation="0 0 0">
-        <a-entity class="rightSaber" position="-0.6 0 0" rotation="0 0 90">
+    <!--<a-entity id="rightHand" hand-controls="right"  rotation="0 0 0">-->
+        <!--<a-entity class="rightSaber" position="-0.6 0 0" rotation="0 0 90">-->
 
-        <a-cylinder height="1" radius="0.02" color="blue" position="0 0 0" opacity="1"></a-cylinder>
-        <a-cylinder height="1" radius="0.035" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>
-        <a-cylinder height="1" radius="0.05" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>
-        <a-cylinder height="0.2" radius="0.02" color="grey" position="0 -0.6 0" opacity="1"></a-cylinder>
+            <!--<a-cylinder class="hitCylinder" height="1" radius="0.02" color="blue" position="0 0 0" opacity="1"></a-cylinder>-->
+            <!--<a-cylinder height="1" radius="0.035" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>-->
+            <!--<a-cylinder height="1" radius="0.05" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>-->
+            <!--<a-cylinder height="0.2" radius="0.02" color="grey" position="0 -0.6 0" opacity="1"></a-cylinder>-->
 
-            <a-animation attribute="position" to="-0.6 0 -4.5" fill="forwards" dur="1000" begin="throwRightSaber" next="moveSaberBack"></a-animation>
-            <a-animation attribute="rotation" to="0 7200 90" fill="forwards"  begin="throwRightSaber" dur="2000"></a-animation>
-            <a-animation attribute="position" to="-0.6 0 0" fill="forwards" dur="1000" begin="moveSaberBack" next="stopAnimation"></a-animation>
+            <!--<a-animation attribute="position" to="-0.6 0 -4.5" fill="forwards" dur="1000" begin="throwRightSaber" next="moveSaberBack"></a-animation>-->
+            <!--<a-animation attribute="rotation" to="0 7200 90" fill="forwards"  begin="throwRightSaber" dur="2000"></a-animation>-->
+            <!--<a-animation attribute="position" to="-0.6 0 0" fill="forwards" dur="1000" begin="moveSaberBack" next="stopAnimation"></a-animation>-->
 
-    </a-entity>
-    </a-entity>
+        <!--</a-entity>-->
+    <!--</a-entity>-->
+
+    <!--  END VIVE CONTROLLERS!!! -->
 
     <a-entity class="viewContainer" ui-view></a-entity>
 
-    <!--<a-sky class="bg" src="images/stars.png" rotation="0 0 0" opacity="1">
+    <a-sky class="bg" src="images/stars.png" rotation="0 0 0" opacity="1">
         <a-animation attribute="rotation"
             dur="500000"
             easing="linear"
             fill="forwards"
             to="0 360 0"
             repeat="indefinite"></a-animation>
-   </a-sky>-->
+   </a-sky>
 
 
-
-
-    <!-- Floor -->
-    <!-- Path -->
-    <!--<a-entity static-body geometry="primitive: box; depth: 10; height: 0.5; width: 10" position="0 0 0" rotation="0 90 0" material="shader: flat; src: url(images/grass.jpg); repeat: 3 3;"></a-entity>-->
 
 </a-scene>
 

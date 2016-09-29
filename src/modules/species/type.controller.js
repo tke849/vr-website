@@ -13,9 +13,9 @@
         .controller('SpeciesController', SpeciesController)
         .directive('speciesWrapper', createSpecies);
 
-    SpeciesController.$inject = ['$scope', '$location', 'APIService'];
+    SpeciesController.$inject = ['$scope', '$rootScope', '$location', 'APIService'];
 
-    function SpeciesController ($scope, $location, APIService) {
+    function SpeciesController ($scope, $rootScope, $location, APIService) {
 
         var apiEndpoint = $location.$$path;
 

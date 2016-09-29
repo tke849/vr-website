@@ -13,9 +13,9 @@
         .controller('HomeController', HomeController)
         .directive('categoryWrapper', createCategories);
 
-    HomeController.$inject = ['$scope', '$q', '$location', 'APIService'];
+    HomeController.$inject = ['$scope', '$rootScope', '$location', 'APIService'];
 
-    function HomeController ($scope, $q, $location, APIService) {
+    function HomeController ($scope, $rootScope, $location, APIService) {
 
         var apiEndpoint = $location.$$path;
 
@@ -50,6 +50,10 @@
 
                     $scope.categories = categories;
 
+
+
+
+
                 });
 
             });
@@ -61,7 +65,7 @@
 
     }
 
-    function createCategories($compile) {
+    function createCategories($compile, $rootScope) {
         return {
             restrict: 'EA',
             scope: {
@@ -80,13 +84,16 @@
 
                     html = html +
                         '<a-entity position="'+category.x+' 2 '+category.z+'" rotation="0 '+category.rotation+' 0">'+
-                            '<a-image src="'+category.image+'" scale="2.5 2.5 2.5"  category="'+category.category+'"></a-image>'+
+                            '<a-image class="link" src="'+category.image+'" scale="2.5 2.5 2.5"  category="'+category.category+'"></a-image>'+
                         '</a-entity>';
 
                 });
 
                 var e =$compile(html)(scope);
                 element.replaceWith(e);
+
+                $rootScope.$broadcast('linksCreated');
+
 
             }
         };

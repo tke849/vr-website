@@ -13,9 +13,9 @@
         .controller('PeopleController', PeopleController)
         .directive('peopleWrapper', createPeople);
 
-    PeopleController.$inject = ['$scope', 'APIService'];
+    PeopleController.$inject = ['$scope', '$rootScope', 'APIService'];
 
-    function PeopleController ($scope, APIService) {
+    function PeopleController ($scope, $rootScope, APIService) {
 
         var apiEndpoint = $location.$$path;
 
@@ -52,7 +52,7 @@
 
     }
 
-    function createPeople($compile) {
+    function createPeople($compile, $rootScope) {
         return {
             restrict: 'EA',
             scope: {
@@ -74,7 +74,7 @@
 
                     html = html +
                         '<a-entity position="'+person.x+' 2 '+person.z+'" rotation="0 '+person.rotation+' 0">'+
-                        '<a-image src="'+imageSrc+'" scale="2 3 2" position="0 0 0" link="'+link+'"></a-image>'+
+                        '<a-image class="link" src="'+imageSrc+'" scale="2 3 2" position="0 0 0" link="'+link+'"></a-image>'+
                         '<a-entity bmfont-text="text: '+person.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu-sdf.fnt; align: center;" position="-0.75 -2 0" link="'+person.url+'"></a-entity>'+
                         '</a-entity>';
 
@@ -82,6 +82,8 @@
 
                 var e =$compile(html)(scope);
                 element.replaceWith(e);
+
+                $rootScope.$broadcast('linksCreated');
 
             }
         };

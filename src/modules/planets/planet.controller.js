@@ -13,9 +13,9 @@
         .controller('PlanetsController', PlanetsController)
         .directive('planetsWrapper', createPlanets);
 
-    PlanetsController.$inject = ['$scope', '$location', 'APIService'];
+    PlanetsController.$inject = ['$scope', '$rootScope', '$location', 'APIService'];
 
-    function PlanetsController ($scope, $location, APIService) {
+    function PlanetsController ($scope, $rootScope, $location, APIService) {
 
         var apiEndpoint = $location.$$path;
 

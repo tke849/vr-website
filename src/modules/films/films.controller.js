@@ -13,9 +13,9 @@
         .controller('FilmsController', FilmsController)
         .directive('filmsWrapper', createFilms);
 
-    FilmsController.$inject = ['$scope', '$location', 'APIService'];
+    FilmsController.$inject = ['$scope', '$rootScope', '$location', 'APIService'];
 
-    function FilmsController ($scope, $location, APIService) {
+    function FilmsController ($scope, $rootScope, $location, APIService) {
 
         var apiEndpoint = $location.$$path;
 
@@ -56,7 +56,7 @@
 
     }
 
-    function createFilms($compile,$stateParams ) {
+    function createFilms($compile, $rootScope ) {
         return {
             restrict: 'EA',
             scope: {
@@ -65,9 +65,6 @@
             link: function (scope, element, attrs) {
 
                 scope.scene = document.querySelector('.viewContainer');
-
-                console.log($stateParams.category);
-
 
                 var html = '';
 
@@ -83,7 +80,7 @@
 
                     html = html +
                         '<a-entity class="films" position="'+film.x+' 2 '+film.z+'" rotation="0 '+film.rotation+' 0">'+
-                        '<a-image src="'+imageSrc+'" scale="1.5 3 0" position="0 0 0" link="'+link+'"></a-image>'+
+                        '<a-image class="link" src="'+imageSrc+'" scale="1.5 3 0" position="0 0 0" link="'+link+'"></a-image>'+
                         '<a-entity bmfont-text="text: '+film.title+'; color: yellow; width: 300px; fnt: fonts/DejaVu-sdf.fnt; align: center;" position="-0.75 -2 0" link="'+film.url+'" ></a-entity>'+
                         '</a-entity>';
 
@@ -92,13 +89,7 @@
                 var e =$compile(html)(scope);
                 element.replaceWith(e);
 
-                var filmsEl = document.querySelectorAll('.films');
-                filmsEl.forEach(function(film) {
-                    film.addEventListener('hit', function(){
-                        console.log('IM HIT!!!');
-                    });
-                });
-
+                $rootScope.$broadcast('linksCreated');
 
             }
         };

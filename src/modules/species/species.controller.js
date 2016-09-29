@@ -13,9 +13,9 @@
         .controller('SpeciesController', SpeciesController)
         .directive('speciesWrapper', createSpecies);
 
-    SpeciesController.$inject = ['$scope', '$location', 'APIService'];
+    SpeciesController.$inject = ['$scope', '$rootScope', '$location', 'APIService'];
 
-    function SpeciesController ($scope, $location, APIService) {
+    function SpeciesController ($scope, $rootScope, $location, APIService) {
 
         var apiEndpoint = $location.$$path;
 
@@ -53,7 +53,7 @@
 
     }
 
-    function createSpecies($compile) {
+    function createSpecies($compile, $rootScope) {
         return {
             restrict: 'EA',
             scope: {
@@ -75,7 +75,7 @@
 
                     html = html +
                         '<a-entity position="'+thisSpecies.x+' 2 '+thisSpecies.z+'" rotation="0 '+thisSpecies.rotation+' 0">'+
-                        '<a-image src="'+imageSrc+'" scale="2 2 2" position="0 0 0" link="'+link+'"></a-image>'+
+                        '<a-image class="link" src="'+imageSrc+'" scale="2 2 2" position="0 0 0" link="'+link+'"></a-image>'+
                         '<a-entity bmfont-text="text: '+thisSpecies.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu-sdf.fnt; align: center;" position="-0.75 -1.5 0" link="'+thisSpecies.url+'"></a-entity>'+
                         '</a-entity>';
 
@@ -83,6 +83,8 @@
 
                 var e =$compile(html)(scope);
                 element.replaceWith(e);
+
+                $rootScope.$broadcast('linksCreated');
 
             }
         };
