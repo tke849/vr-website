@@ -13,9 +13,9 @@
         .controller('PeopleController', PeopleController)
         .directive('peopleWrapper', createPeople);
 
-    PeopleController.$inject = ['$scope', '$rootScope', 'APIService'];
+    PeopleController.$inject = ['$scope', '$location', 'APIService'];
 
-    function PeopleController ($scope, $rootScope, APIService) {
+    function PeopleController ($scope, $location, APIService) {
 
         var apiEndpoint = $location.$$path;
 
@@ -75,7 +75,7 @@
                     html = html +
                         '<a-entity position="'+person.x+' 2 '+person.z+'" rotation="0 '+person.rotation+' 0">'+
                         '<a-image class="link" src="'+imageSrc+'" scale="2 3 2" position="0 0 0" link="'+link+'"></a-image>'+
-                        '<a-entity bmfont-text="text: '+person.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu-sdf.fnt; align: center;" position="-0.75 -2 0" link="'+person.url+'"></a-entity>'+
+                        '<a-entity bmfont-text="text: '+person.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt; align: center;" position="-0.75 -2 0" link="'+person.url+'"></a-entity>'+
                         '</a-entity>';
 
                 });

@@ -75,7 +75,7 @@
                     html = html +
                         '<a-entity position="'+ship.x+' 2 '+ship.z+'" rotation="0 '+ship.rotation+' 0">'+
                         '<a-image class="link" src="'+imageSrc+'" scale="2 2 2" position="0 0 0" link="'+ship.url+'"></a-image>'+
-                        '<a-entity bmfont-text="text: '+ship.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu-sdf.fnt; align: center;" position="-0.75 -1.5 0" link="'+ship.url+'"></a-entity>'+
+                        '<a-entity bmfont-text="text: '+ship.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt; align: center;" position="-0.75 -1.5 0" link="'+ship.url+'"></a-entity>'+
                         '</a-entity>';
 
                 });

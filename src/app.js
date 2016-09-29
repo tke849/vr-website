@@ -46,16 +46,10 @@
         ])
         .config(function ($urlRouterProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
 
-            //var appId = ':adb88475f9a9461d865a63522dfa21c4';
-            //var azureKey = btoa(appId);
-            //
-            //$httpProvider.defaults.headers.common['Content-Type'] = 'multipart/form-data';
-            //$httpProvider.defaults.headers.common['Ocp-Apim-Subscription-Key'] = 'adb88475f9a9461d865a63522dfa21c4';
-
             $sceDelegateProvider.resourceUrlWhitelist([
                 'self']);
 
-
+            //$locationProvider.html5Mode(true);
 
 
         }).run(function ($rootScope, $timeout, $state, $window) {

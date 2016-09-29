@@ -42,10 +42,6 @@
 
                     $scope.films = films;
 
-
-
-
-
                 });
 
             });
@@ -81,7 +77,7 @@
                     html = html +
                         '<a-entity class="films" position="'+film.x+' 2 '+film.z+'" rotation="0 '+film.rotation+' 0">'+
                         '<a-image class="link" src="'+imageSrc+'" scale="1.5 3 0" position="0 0 0" link="'+link+'"></a-image>'+
-                        '<a-entity bmfont-text="text: '+film.title+'; color: yellow; width: 300px; fnt: fonts/DejaVu-sdf.fnt; align: center;" position="-0.75 -2 0" link="'+film.url+'" ></a-entity>'+
+                        '<a-entity bmfont-text="text: '+film.title+'; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt; align: center;" position="-0.75 -2 0" link="'+film.url+'" ></a-entity>'+
                         '</a-entity>';
 
                 });

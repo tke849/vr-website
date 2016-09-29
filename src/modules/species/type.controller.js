@@ -75,7 +75,7 @@
                     html = html +
                         '<a-entity position="'+thisSpecies.x+' 2 '+thisSpecies.z+'" rotation="0 '+thisSpecies.rotation+' 0">'+
                         '<a-image src="'+imageSrc+'" scale="2 2 2" position="0 0 0" link="'+thisSpecies.url+'"></a-image>'+
-                        '<a-entity bmfont-text="text: '+thisSpecies.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu-sdf.fnt; align: center;" position="-0.75 -1.5 0" link="'+thisSpecies.url+'"></a-entity>'+
+                        '<a-entity bmfont-text="text: '+thisSpecies.name+'; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt; align: center;" position="-0.75 -1.5 0" link="'+thisSpecies.url+'"></a-entity>'+
                         '</a-entity>';
 
                 });

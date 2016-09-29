@@ -38,8 +38,8 @@
 			})
 			.state('layout.people', {
 				url: '/people/',
-				templateUrl: 'modules/people/people.html',
-				controller: 'PeopleController',
+				templateUrl: 'modules/links/links.html',
+				controller: 'LinksController',
 				params: {
 					saber: true
 				}
@@ -47,8 +47,8 @@
 
 			.state('layout.person', {
 				url: '/people/:id/',
-				templateUrl: 'modules/people/person.html',
-				controller: 'PersonController',
+				templateUrl: 'modules/details/details.html',
+				controller: 'DetailsController',
 				params: {
 					saber: false
 				}
@@ -56,8 +56,8 @@
 
 			.state('layout.starships', {
 				url: '/starships/',
-				templateUrl: 'modules/starships/starships.html',
-				controller: 'StarshipsController',
+				templateUrl: 'modules/links/links.html',
+				controller: 'LinksController',
 				params: {
 					saber: true
 				}
@@ -65,8 +65,8 @@
 
 			.state('layout.starship', {
 				url: '/starships/:id/',
-				templateUrl: 'modules/starships/starship.html',
-				controller: 'StarshipController',
+				templateUrl: 'modules/details/details.html',
+				controller: 'DetailsController',
 				params: {
 					saber: false
 				}
@@ -74,8 +74,8 @@
 
 			.state('layout.species', {
 				url: '/species/',
-				templateUrl: 'modules/species/species.html',
-				controller: 'SpeciesController',
+				templateUrl: 'modules/links/links.html',
+				controller: 'LinksController',
 				params: {
 					saber: true
 				}
@@ -83,8 +83,8 @@
 
 			.state('layout.type', {
 				url: '/species/:id/',
-				templateUrl: 'modules/species/species.html',
-				controller: 'SpeciesController',
+				templateUrl: 'modules/details/details.html',
+				controller: 'DetailsController',
 				params: {
 					saber: false
 				}
@@ -92,8 +92,8 @@
 
 			.state('layout.vehicles', {
 				url: '/vehicles/',
-				templateUrl: 'modules/vehicles/vehicles.html',
-				controller: 'VehiclesController',
+				templateUrl: 'modules/links/links.html',
+				controller: 'LinksController',
 				params: {
 					saber: true
 				}
@@ -101,8 +101,8 @@
 
 			.state('layout.vehicle', {
 				url: '/vehicle/:id',
-				templateUrl: 'modules/vehicles/vehicle.html',
-				controller: 'VehicleController',
+				templateUrl: 'modules/details/details.html',
+				controller: 'DetailsController',
 				params: {
 					saber: false
 				}
@@ -110,8 +110,8 @@
 
 			.state('layout.planets', {
 				url: '/planets/',
-				templateUrl: 'modules/planets/planets.html',
-				controller: 'PlanetsController',
+				templateUrl: 'modules/links/links.html',
+				controller: 'LinksController',
 				params: {
 					saber: true
 				}
@@ -119,8 +119,8 @@
 
 			.state('layout.planet', {
 				url: '/planets/:id/',
-				templateUrl: 'modules/planets/planet.html',
-				controller: 'PlanetController',
+				templateUrl: 'modules/details/details.html',
+				controller: 'DetailsController',
 				params: {
 					saber: false
 				}
@@ -128,8 +128,8 @@
 
 			.state('layout.films', {
 				url: '/films/',
-				templateUrl: 'modules/films/films.html',
-				controller: 'FilmsController',
+				templateUrl: 'modules/links/links.html',
+				controller: 'LinksController',
 				params: {
 					saber: true
 				}
@@ -137,8 +137,8 @@
 
 			.state('layout.film', {
 				url: '/films/:id/',
-				templateUrl: 'modules/films/film.html',
-				controller: 'FilmController',
+				templateUrl: 'modules/details/details.html',
+				controller: 'DetailsController',
 				params: {
 					saber: false
 				}
