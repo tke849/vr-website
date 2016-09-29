@@ -1,0 +1,23 @@
+
+
+<a-entity class="saber" position="{{saberOrigin}}" rotation="{{direction}}">
+
+    <a-cylinder height="1" radius="0.02" color="blue" position="0 0 0" opacity="1"></a-cylinder>
+    <a-cylinder height="1" radius="0.035" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>
+    <a-cylinder height="1" radius="0.05" color="blue" position="0 0 0" opacity="0.3"></a-cylinder>
+    <a-cylinder height="0.2" radius="0.02" color="grey" position="0 -0.6 0" opacity="1"></a-cylinder>
+
+    <a-animation attribute="position" to="{{saberNexus}}" fill="forwards" dur="1000" next="moveSaberBack"></a-animation>
+    <a-animation attribute="rotation" to="0 7200 -90" fill="forwards" dur="2000"></a-animation>
+    <a-animation attribute="position" to="{{saberOrigin}}" fill="forwards" dur="1000" begin="moveSaberBack" next="stopAnimation"></a-animation>
+
+</a-entity>
+
+<!--<a-entity class="detonation" position="{{start}}">-->
+    <!--<a-sphere ng-repeat="i in getNumber(spheres) track by $index" position="0 0 0" radius="0.01" color="#05d8fd">-->
+        <!--<a-animation attribute="position" delay="500" fill="forwards" dur="500" to="2 2 2 "></a-animation>-->
+    <!--</a-sphere>-->
+<!--</a-entity>-->
+
+
+
