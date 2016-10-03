@@ -100,7 +100,7 @@
 			})
 
 			.state('layout.vehicle', {
-				url: '/vehicle/:id',
+				url: '/vehicles/:id/',
 				templateUrl: 'modules/details/details.html',
 				controller: 'DetailsController',
 				params: {

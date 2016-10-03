@@ -61,6 +61,7 @@
             link: function (scope, element, attrs) {
 
                 var path = $location.$$path;
+
                 var scale = "2 2 2";
                 if(path.indexOf('films') !== -1){
                     scale = "1.5 3 0"
