@@ -10,22 +10,24 @@
         <a-mixin id="pew" geometry="primitive:cylinder; height: 0.2; radius: 0.01" material="color: blue"></a-mixin>
     </a-assets>
 
-    <a-entity class="link" back="true" position="0 -4.5 -2" rotation="90 0 0" scale="2 2 2">
-        <a-image src="#arrow" class="back" position="-2 0 0" rotation="0 0 90" back></a-image>
-        <a-image src="#home" class="home" position="0 0 0"  rotation="0 0 180" home></a-image>
-        <a-image src="#arrow" class="forward" position="2 0 0"  rotation="0 0 -90" forward></a-image>
+    <a-entity back="true" position="0 0 -1" rotation="90 0 0" scale="1 1 1">
+        <a-image class="link" src="#arrow" class="back" position="-1.3 0 0" rotation="0 0 90" back></a-image>
+        <a-image class="link" src="#home" class="home" position="0 0 0"  rotation="0 0 180" home></a-image>
+        <a-image class="link" src="#arrow" class="forward" position="1.3 0 0"  rotation="0 0 -90" forward></a-image>
     </a-entity>
 
-    <a-camera id="camera" user-height="2" tracked-controls look-controls>
+    <a-camera id="camera" user-height="2" tracked-controls look-controls hud>
 
-        <a-entity position="-0.25 -0.35 -3.75">
+
+
+        <a-entity cursor id="crosshairs" position="-0.25 -0.35 -3.75">
             <a-plane color="white" opacity="0.5" height="0.1" width="0.01" position="0 0.1 0"></a-plane>
             <a-plane color="white" opacity="0.5"  height="0.1" width="0.01" position="0 -0.1 0"></a-plane>
             <a-plane color="white" opacity="0.5"  height="0.1" width="0.01" position="0.1 0 0" rotation="0 0 90"></a-plane>
             <a-plane color="white" opacity="0.5"  height="0.1" width="0.01" position="-0.1 0 0" rotation="0 0 90"></a-plane>
         </a-entity>
 
-        <a-entity class="blaster" cursor position="-0.25 -0.5 -1" scale="1 1 1" rotation="0 90 0" spawner="mixin: pew; on: mousedown">
+        <a-entity cursor class="blaster"  position="-0.25 -0.5 -1" scale="1 1 1" rotation="0 90 0" spawner="mixin: pew; on: mousedown">
             <a-entity collada-model="#blasterDae"  scale="1 1 1" position="0 0 0"></a-entity>
             <a-sphere class="bullet" radius="0.015" color="blue" position="0.3 0.125 0.0025" rotation="0 0 90" opacity="0"></a-sphere>
         </a-entity>
