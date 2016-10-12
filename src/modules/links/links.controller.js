@@ -84,7 +84,7 @@
                     html = html +
                         '<a-entity class="films" position="'+item.x+' 2 '+item.z+'" rotation="0 '+item.rotation+' 0">'+
                         '<a-image class="link" src="'+imageSrc+'" scale="'+scale+'" position="0 0 0" link="'+link+'"></a-image>'+
-                        '<a-entity bmfont-text="text: '+title+'; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt; align: center;" position="-0.75 -2 0" link="'+item.url+'" ></a-entity>'+
+                        '<a-entity bmfont-text="text: '+title+'; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt; align: center; opacity: 0.5" position="-0.75 -2 0" link="'+item.url+'" ></a-entity>'+
                         '</a-entity>';
 
                 });

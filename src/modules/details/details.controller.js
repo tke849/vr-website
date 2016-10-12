@@ -111,7 +111,7 @@
                                     var subObject = object[subKey];
 
                                     var innerHtml = innerHtml +
-                                        '<a-entity bmfont-text="text: ' + subKey + '\: '+subObject + '; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt;' +
+                                        '<a-entity bmfont-text="text: ' + subKey + '\: '+subObject + '; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt; opacity: 0.5' +
                                         'align: center;" position="'+left+' '+ height +' 0" ></a-entity>'
 
                                 }
@@ -168,7 +168,7 @@
                                     var imageScale = key === 'films' ? '1 2 1' : '1 1 1';
 
                                     var innerHtml = innerHtml +
-                                        '<a-image title="'+title+'" position="'+left+' '+ height +' 0" scale="'+imageScale+'" src="' + imageSrc + '" ></a-image>';
+                                        '<a-image class="link" title="'+title+'" position="'+left+' '+ height +' 0" scale="'+imageScale+'" src="' + imageSrc + '" ></a-image>';
                                 }
 
                                 count++;

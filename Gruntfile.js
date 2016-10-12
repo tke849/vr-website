@@ -433,7 +433,7 @@ module.exports = function (grunt) {
                 patterns: {
                     // FIXME While usemin won't have full support for revved files we have to put all references manually here
                     js: [
-                        [/(images\/.*?\.(?:gif|jpeg|jpg|dae|obj|mtl|png|fnt|webp|svg|mp4))/gm, 'Update the JS to reference our revved images']
+                        [/(images\/.*?\.(?:gif|jpeg|jpg|dae|obj|mtl|png|mp3|ogg|fnt|webp|svg|mp4))/gm, 'Update the JS to reference our revved images']
                     ]
                 },
                 blockReplacements: {
@@ -456,7 +456,7 @@ module.exports = function (grunt) {
                 patterns: {
                     // FIXME While usemin won't have full support for revved files we have to put all references manually here
                     js: [
-                        [/(images\/.*?\.(?:gif|jpeg|jpg|dae|obj|mtl|png|fnt|webp|svg|mp4))/gm, 'Update the JS to reference our revved images']
+                        [/(images\/.*?\.(?:gif|jpeg|jpg|dae|obj|mtl|png|mp3|ogg|fnt|webp|svg|mp4))/gm, 'Update the JS to reference our revved images']
                     ]
                 },
                 blockReplacements: {
@@ -537,7 +537,7 @@ module.exports = function (grunt) {
                             },
                             modRewrite(['^/imagePaths$ "hello',
                                 '!\\.html|\\.js|\\.svg|\\.css|\\.obj|\\.mtl' +
-                                '|\\.png|\\.fnt|\\.jpg|\\.gif|\\.mp4|\\.webm|\\.dae|\\.ogv' +
+                                '|\\.png|\\.fnt|\\.jpg|\\.gif|\\.mp4|\\.mp3|\\.ogg|\\.webm|\\.dae|\\.ogv' +
                                 '|\\.ttf|\\.woff|\\.woff2'+
                                 '$ /index.html [L]'
                             ]),
@@ -616,7 +616,7 @@ module.exports = function (grunt) {
                 files: [
                     '<%= appConfig.src %>/{,*/}*.html',
                     '<%= appConfig.src %>/{,*/}*.js',
-                    '<%= appConfig.src %>/images/{,*/}*.{png,jpg,dae,obj,mtl,fnt,jpeg,gif,webp,svg,mp4}',
+                    '<%= appConfig.src %>/images/{,*/}*.{png,jpg,dae,obj,mtl,fnt,jpeg,gif,webp,svg,mp4,mp3,ogg}',
                     '.tmp/styles/{,*/}*.css',
                 ]
             }

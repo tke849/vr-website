@@ -13,7 +13,7 @@
 
 
 	angular
- 	.module('JWVR.routes', []).config(routeConfig);
+ 	.module('SWVR.routes', []).config(routeConfig);
 
 
  	function routeConfig($stateProvider) {

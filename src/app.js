@@ -40,7 +40,7 @@
             'ngAnimate',
             'ngTouch',
             'ui.router',
-            'JWVR.routes',
+            'SWVR.routes',
             'restangular',
             'AFRAME'
         ])

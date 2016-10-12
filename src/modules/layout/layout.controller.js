@@ -457,12 +457,14 @@
         });
 
 
+        /** active throw prevents animation restart **/
         $scope.cameraSaberActive = false;
+
+        /** throw timer runs our 'tick' update function where we detect collision **/
         $scope.throwTimer;
 
 
         $scope.cameraSaber = function(){
-
 
                 $timeout(function(){
 
@@ -472,7 +474,7 @@
 
                     scene.addEventListener('click', function(){
 
-                        if(!$scope.cameraSaberActive){
+                        if(!$scope.cameraSaberActive && cameraSaber.object3D.visible){
                             $scope.cameraSaberActive = true;
                             cameraSaber.emit('throwCameraSaber');
 
@@ -480,11 +482,11 @@
 
                             $scope.throwTimer = $interval(function(){
 
-                                $scope.tick(hitObject);
+                                //$scope.tick(hitObject);
+                                $scope.collision(hitObject);
 
                             },100)
                         }
-
 
                     });
 
@@ -493,6 +495,37 @@
                     });
 
                 },0);
+
+
+        };
+
+        $scope.collision = function(bullet){
+
+
+            bullet.targets = [];
+
+            var targetEls = bullet.sceneEl.querySelectorAll('.link');
+            for (var i = 0; i < targetEls.length; i++) {
+                bullet.targets.push(targetEls[i]);
+            }
+
+            var firstBB = new THREE.Box3().setFromObject(bullet.object3D);
+
+            bullet.targets.forEach(function(target){
+
+                var targetBB = new THREE.Box3().setFromObject(target.object3D);
+                var collision = firstBB.intersectsBox(targetBB);
+
+
+                if(collision === true){
+                    var vector = new THREE.Vector3();
+                    vector.setFromMatrixPosition( target.object3D.matrixWorld );
+                    target.emit('hit');
+                    $scope.spark(vector);
+                }
+
+
+            });
 
 
         };
@@ -510,6 +543,8 @@
             el.elMax = new THREE.Vector3();
             el.elMin = new THREE.Vector3();
 
+
+
             var boundingBox = new THREE.Box3();
 
             var collisions = [];
@@ -518,7 +553,7 @@
             var self = el;
             // No mesh, no collisions
             if (!mesh) {
-                console.log('no mesh');
+                console.log('weapon has no mesh');
                 return;
             }
             // Update the bounding box to account for rotations and
@@ -550,10 +585,14 @@
                 var mesh = el.getObject3D('mesh');
                 var elMin;
                 var elMax;
-                if (!mesh) { return; }
+                if (!mesh) {
+                    console.log('target has no mesh');
+                    return;
+                }
                 boundingBox.setFromObject(mesh);
                 elMin = boundingBox.min;
                 elMax = boundingBox.max;
+
                 intersected = (self.elMin.x <= elMax.x && self.elMax.x >= elMin.x) &&
                     (self.elMin.y <= elMax.y && self.elMax.y >= elMin.y) &&
                     (self.elMin.z <= elMax.z && self.elMax.z >= elMin.z);
@@ -688,6 +727,8 @@
                     el.addEventListener(this.data.on, spawn);
                     this.on = this.data.on;
 
+
+
                 },
 
                 spawn: function () {
@@ -731,6 +772,18 @@
                         var scene = document.querySelector('a-scene');
                         scene.appendChild(spawnWrapper);
 
+                        var hitObject = document.querySelector('.pewpew');
+
+                       var bulletTimer = $interval(function(){
+                            $scope.collision(spawnPew);
+                        },50);
+
+                        $timeout(function(){
+                            $interval.cancel(bulletTimer);
+                            scene.remove( spawnWrapper );
+                        }, 1000);
+
+
                     }
 
 
@@ -757,7 +810,7 @@
                     var title = e.detail.intersectedEl.attributes.title.nodeValue;
 
                     var hud = '<a-entity class="hud" position="-.4 1 -1.5">' +
-                        '<a-entity bmfont-text="text: ' + title + '; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt;' +
+                        '<a-entity bmfont-text="text: ' + title + '; color: yellow; width: 300px; fnt: fonts/DejaVu.fnt; opacity: 0.5' +
                         ' align:center;" position="0 0 0" scale=".5 .5 .5"></a-entity>';
 
                     $(camera).append(hud);
@@ -780,17 +833,178 @@
             var cameraSaber = document.querySelector('.cameraSaber');
             var blaster  = document.querySelector('.blaster');
 
-            //if(!$state.params.saber){
-            //    $timeout(function(){
-            //        cameraSaber.pause();
-            //        //cameraSaber.traverse( function ( object ) { object.visible = false; } );
-            //    }, 1500)
-            //} else {
-            //    //cameraSaber.traverse( function ( object ) { object.visible = true; } );
-            //    cameraSaber.play();
-            //}
+            if(!$state.params.saber){
+                $timeout(function(){
+                    cameraSaber.object3D.visible = false;
+                    blaster.object3D.visible = true;
+                }, 1500)
+            } else {
+                cameraSaber.object3D.visible = true;
+                blaster.object3D.visible = false;
+            }
+
 
         };
+
+        $scope.spatialAudio = function(){
+
+            var sceneSelector = document.querySelector('a-scene');
+            var scene = sceneSelector.object3D;
+
+            var cameraSelector = document.querySelector('a-camera');
+            var camera = cameraSelector.object3D;
+
+            var listener = new THREE.AudioListener();
+            camera.add( listener );
+
+            var speaker = new THREE.SphereGeometry(1, 1, 1);
+            var mesh1 = new THREE.Mesh( speaker );
+            mesh1.position.set( -50, 30, 0 );
+            scene.add( mesh1 );
+
+            var sound1 = new THREE.PositionalAudio( listener );
+
+            var audioLoader = new THREE.AudioLoader();
+
+            audioLoader.load( 'images/intro.mp3', function( buffer ) {
+                sound1.setBuffer( buffer );
+                sound1.setRefDistance( 20 );
+                sound1.play();
+            });
+
+            mesh1.add( sound1 );
+
+
+        };
+
+        $scope.starrySky = function(){
+
+            var sceneSelector = document.querySelector('a-sky');
+            var scene = sceneSelector.object3D;
+
+            var particles, geometry, textureLoader, materials = [], parameters, i, color, sprite, size, star1, star2;
+
+
+            geometry = new THREE.Geometry();
+            textureLoader = new THREE.TextureLoader();
+            star1 = textureLoader.load( "images/particle1.png" );
+
+            for ( i = 0; i < 10000; i ++ ) {
+                var vertex = new THREE.Vector3();
+                vertex.x = Math.random() * 2000 - 1000;
+                vertex.y = Math.random() * 2000 - 1000;
+                vertex.z = Math.random() * 2000 - 1000;
+                geometry.vertices.push( vertex );
+            }
+
+            parameters = [
+                [ [0.90, 0.05, 0.5], star1, 10 ]
+
+            ];
+
+            for ( i = 0; i < parameters.length; i ++ ) {
+                color  = parameters[i][0];
+                sprite = parameters[i][1];
+                size   = parameters[i][2];
+
+                materials[i] = new THREE.PointsMaterial( { size: size, map: sprite, blending: THREE.AdditiveBlending, depthTest: false, transparent : true } );
+                materials[i].color.setHSL( color[0], color[1], color[2] );
+
+
+                particles = new THREE.Points( geometry, materials[i] );
+                particles.rotation.x = Math.random() * 6;
+                particles.rotation.y = Math.random() * 6;
+                particles.rotation.z = Math.random() * 6;
+
+
+                scene.add( particles );
+            }
+
+
+        };
+
+        $scope.spark = function(vector){
+
+            var x = vector.x;
+            var y = vector.y;
+            var z = vector.z;
+
+            var sceneSelector = document.querySelector('a-scene');
+            var scene = sceneSelector.object3D;
+
+            var movementSpeed = 80;
+            var totalObjects = 100;
+            var objectSize = 1;
+            var colors = [0x05a9fb, 0x83d4fc, 0x01d0fc, 0x04ecfa, 0xFFFFFF];
+            var textureLoader = new THREE.TextureLoader();
+            var sprite = textureLoader.load( "images/particle2.png" );
+
+            var dirs = [];
+
+            var geometry = new THREE.Geometry();
+
+            for (var i = 0; i < totalObjects; i ++)
+            {
+                var vertex = new THREE.Vector3();
+                vertex.x = x;
+                vertex.y = y;
+                vertex.z = z;
+
+                geometry.vertices.push( vertex );
+                //dirs.push({
+                //    x:(Math.random() * movementSpeed)-(movementSpeed/2),
+                //    y:(Math.random() * movementSpeed)-(movementSpeed/2),
+                //    z:(Math.random() * movementSpeed)-(movementSpeed/2)
+                //});
+
+                var plusOrMinus = Math.random() < 0.5 ? -2 : 2;
+
+                var Xmax = x + plusOrMinus;
+                var Xmin = x - plusOrMinus;
+                var Ymax = y + plusOrMinus;
+                var Ymin = y - plusOrMinus;
+                var Zmax = z + plusOrMinus;
+                var Zmin = z - plusOrMinus;
+
+                dirs.push({
+                    x:  (Math.random()*(Xmax-Xmin-1)+Xmin),
+                    y:  (Math.random()*(Ymax-Ymin-1)+Ymin),
+                    z:  (Math.random()*(Zmax-Zmin-1)+Zmin)
+                });
+
+
+            }
+
+            //materials[i] = new THREE.PointsMaterial( { size: size, map: sprite, blending: THREE.AdditiveBlending, depthTest: false, transparent : true } );
+            //materials[i].color.setHSL( color[0], color[1], color[2] );
+
+            var material = new THREE.PointsMaterial( { size: objectSize,  map: sprite, blending: THREE.AdditiveBlending, depthTest: false, transparent : true  });
+            //material.color.setRGB(0,168,5);
+            var particles = new THREE.Points( geometry, material );
+
+
+            scene.add( particles );
+
+            var sparkTimer = $interval(function(){
+                var pCount = totalObjects;
+                while(pCount--) {
+                    var particle =  particles.geometry.vertices[pCount];
+
+                    particle.y += dirs[pCount].y;
+                    particle.x += dirs[pCount].x;
+                    particle.z += dirs[pCount].z;
+                }
+                particles.geometry.verticesNeedUpdate = true;
+            }, 10);
+
+            $timeout(function(){
+                $interval.cancel(sparkTimer);
+                scene.remove(particles);
+            }, 2000);
+
+        };
+
+
 
 
 
@@ -798,15 +1012,23 @@
 
             $scope.attachCrosshairEvents();
 
-            //$scope.viveControls();
+            //$scope.viveControls();  /** Complete! **/
 
             $scope.cameraSaber();
+
 
             $scope.registerSpawner();
 
             //$scope.loadARVideo();
 
             $scope.checkWeapon();
+
+            //$scope.spatialAudio();  /** Complete! **/
+
+            $scope.starrySky();
+
+
+
 
 
         };
