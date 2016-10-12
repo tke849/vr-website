@@ -5,6 +5,9 @@
 
     <a-assets>
         <a-asset-item id="blasterDae" src="images/blaster.dae"></a-asset-item>
+        <a-asset-item id="falcon" src="images/falcon.dae"></a-asset-item>
+        <a-asset-item id="falcon-obj" src="images/falcon.obj"></a-asset-item>
+        <a-asset-item id="falcon-mtl" src="images/falcon.mtl"></a-asset-item>
         <img id="arrow" src="images/arrow.png">
         <img id="home" src="images/home.png">
         <a-mixin id="pew" geometry="primitive:cylinder; height: 0.2; radius: 0.01" material="color: blue"></a-mixin>
@@ -18,6 +21,8 @@
 
     <a-camera id="camera" user-height="2" tracked-controls look-controls hud>
 
+        <!--<a-entity collada-model="#falcon"  scale="1 1 1" position="-0.25 1.5 -4"></a-entity>-->
+        <a-entity obj-model="obj: #falcon-obj; mtl: #falcon-mtl"  scale="1 1 1" position="-0.25 1.5 -4"></a-entity>
 
 
         <a-entity cursor id="crosshairs" position="-0.25 -0.35 -3.75">
@@ -87,14 +92,23 @@
 
     <a-entity class="viewContainer" ui-view></a-entity>
 
-    <a-sky class="bg" src="images/stars.png" rotation="0 0 0" opacity="1">
+    <a-sky color="#000">
         <a-animation attribute="rotation"
             dur="500000"
             easing="linear"
             fill="forwards"
             to="0 360 0"
             repeat="indefinite"></a-animation>
-   </a-sky>
+    </a-sky>
+
+    <!--<a-sky class="bg" src="images/stars.png" rotation="0 0 0" opacity="1">-->
+        <!--<a-animation attribute="rotation"-->
+            <!--dur="500000"-->
+            <!--easing="linear"-->
+            <!--fill="forwards"-->
+            <!--to="0 360 0"-->
+            <!--repeat="indefinite"></a-animation>-->
+   <!--</a-sky>-->
 
 
 
